@@ -43,7 +43,7 @@ async def on_message(msg):
         if "KiwiBOT" not in str(msg.author.roles) and shit in str(msg.content.lower()):
             await msg.reply("Hold up....")
             channel = bot.get_channel(448686989286572032)
-            await channel.send(f"User: **{msg.author.name}**\nQuestionable message sent: **{msg.content}**\nRoom: **{msg.channel.name}**")
+            await channel.send(f"**User**: {msg.author.mention}\n**Questionable message sent**: {msg.content}\n**Room**: {msg.channel.mention}\t**Penalty**: 1 minute timeout!")
             await msg.delete()
             await msg.author.timeout(timedelta(minutes = 1), reason = "Naughty words")
             return
@@ -51,7 +51,7 @@ async def on_message(msg):
         if "KiwiBOT" not in str(msg.author.roles) and instance in str(msg.content.lower()):
             await msg.reply("Hold up.... You just sent an IP Grabber, you dirty bastard!")
             channel = bot.get_channel(448686989286572032)
-            await channel.send(f"User: **{msg.author.name}**\nIP grabber sent: **{msg.content}**\nRoom: **{msg.channel.name}**")
+            await channel.send(f"**User**: {msg.author.mention}\n**IP grabber sent**: {msg.content}\n**Room**: {msg.channel.mention}\t**Penalty**: 30 minute timeout!")
             await msg.delete()
             await msg.author.timeout(timedelta(minutes = 30), reason = "IP grabber sent")
             return
@@ -59,7 +59,7 @@ async def on_message(msg):
         if "KiwiBOT" not in str(msg.author.roles) and shortner in str(msg.content.lower()):
             await msg.reply("Hold up.... No Link Shortners Permitted!")
             channel = bot.get_channel(448686989286572032)
-            await channel.send(f"User: **{msg.author.name}**\nLink Shortner Sent: **{msg.content}**\nRoom: **{msg.channel.name}**")
+            await channel.send(f"**User**: {msg.author.mention}\n**Link Shortner Sent**: {msg.content}\n**Room**: {msg.channel.mention}")
             await msg.delete()
             return
 
