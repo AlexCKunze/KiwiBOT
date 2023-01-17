@@ -49,7 +49,8 @@ async def on_message(msg):
             return
     for instance in grabbies:
         if "KiwiBOT" not in str(msg.author.roles) and instance in str(msg.content.lower()):
-            await msg.reply("Hold up.... You just sent an IP Grabber, you dirty bastard!")
+            await msg.reply("Hold up.... You just sent an IP Grabber, you have been exposed!")
+
             channel = bot.get_channel(448686989286572032)
             await channel.send(f"**User**: {msg.author.mention}\n**IP grabber sent**: {msg.content}\n**Room**: {msg.channel.mention}\t**Penalty**: 30 minute timeout!")
             await msg.delete()
