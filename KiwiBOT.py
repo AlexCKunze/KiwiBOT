@@ -39,8 +39,8 @@ async def on_message(msg):
             await msg.reply("You don't have permission to send that, as you are not a waddler! ._.")
             await msg.delete()
             return
-    for shit in bannedwords:
-        if "KiwiBOT" not in str(msg.author.roles) and shit in str(msg.content.lower()):
+    for word in bannedwords:
+        if "KiwiBOT" not in str(msg.author.roles) and word in str(msg.content.lower()):
             await msg.reply("Hold up....")
             channel = bot.get_channel(448686989286572032)
             await channel.send(f"**User**: {msg.author.mention}\n**Questionable message sent**: {msg.content}\n**Room**: {msg.channel.mention}\t**Penalty**: 1 minute timeout!")
@@ -65,15 +65,6 @@ async def on_message(msg):
 
     await bot.process_commands(msg) #Without this line, commands are broken.
 ### Chat Filter End
-
-@bot.command()
-async def ping(ctx):
-    await ctx.reply(f"Pong! {round(bot.latency * 1000)}ms")
-
-@bot.command()
-async def sum(ctx, arg1, arg2):
-    await ctx.send(f"Sum: {int(arg1) + int(arg2)}")
-
 
 def dice_roll():
     dice_possibilites = [1, 2, 3, 4, 5, 6]
