@@ -89,7 +89,7 @@ async def roll(ctx):
 
 @bot.command()
 async def manual(ctx):
-    await ctx.reply(f"$roll to roll a dice\n$flipcoin to flip a coin\n$ping to check bot latency")
+    await ctx.reply(f"$roll to roll a dice\n$flipcoin to flip a coin")
 
 t = open("token", "r")
 tr = t.read()
