@@ -26,6 +26,8 @@ f = open("link_shortners.txt", "r")
 lst = f.read().split("\n")
 f.close()
 shorties = lst[:-1]
+room_id = 448686989286572032
+channel = bot.get_channel(room_id)
 
 @bot.event
 async def on_ready():
@@ -42,7 +44,6 @@ async def on_message(msg):
     for word in bannedwords:
         if "KiwiBOT" not in str(msg.author.roles) and word in str(msg.content.lower()):
             await msg.reply("Hold up....")
-            channel = bot.get_channel(448686989286572032)
             await channel.send(f"**User**: {msg.author.mention}\n**Questionable message sent**: {msg.content}\n**Room**: {msg.channel.mention}\t**Penalty**: 1 minute timeout!")
             await msg.delete()
             await msg.author.timeout(timedelta(minutes = 1), reason = "Naughty words")
@@ -51,7 +52,6 @@ async def on_message(msg):
         if "KiwiBOT" not in str(msg.author.roles) and instance in str(msg.content.lower()):
             await msg.reply("Hold up.... You just sent an IP Grabber, you have been exposed!")
 
-            channel = bot.get_channel(448686989286572032)
             await channel.send(f"**User**: {msg.author.mention}\n**IP grabber sent**: {msg.content}\n**Room**: {msg.channel.mention}\t**Penalty**: 30 minute timeout!")
             await msg.delete()
             await msg.author.timeout(timedelta(minutes = 30), reason = "IP grabber sent")
@@ -59,7 +59,6 @@ async def on_message(msg):
     for shortner in shorties:
         if "KiwiBOT" not in str(msg.author.roles) and shortner in str(msg.content.lower()):
             await msg.reply("Hold up.... No Link Shortners Permitted!")
-            channel = bot.get_channel(448686989286572032)
             await channel.send(f"**User**: {msg.author.mention}\n**Link Shortner Sent**: {msg.content}\n**Room**: {msg.channel.mention}")
             await msg.delete()
             return
